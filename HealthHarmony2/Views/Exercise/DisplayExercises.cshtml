@@ -1,0 +1,32 @@
+﻿@model IEnumerable<HealthHarmony2.Models.Exercise>
+@{
+    ViewBag.Title = "DisplayExercises";
+}
+
+<main>
+    <div class="container">
+        <div class="row">
+            @foreach (var Exercise in Model)
+            {
+
+                <div class="col-6" style="padding:50px">
+                    <div class="card">
+                        <a href="http://localhost:60379/Exercise/DisplayExercise/@Exercise.ExerciseID" class="link-dark text-decoration-none ">
+                            <img class="card-img-top" src='/Uploads/@Exercise.ExerciseImage' alt="No Image" width="250" height="250" />
+                            <div class="card-body">
+                                <h4 class="card-title " style="text-align:center">@Html.DisplayFor(E => Exercise.ExerciseName)</h4>
+                                <p>@Exercise.ExerciseDescription</p>
+
+                                <button class="btn btn-outline-success align-content-center card-body fw-bold" style="width:100%"> View</button>
+                                @*@Html.ActionLink("view", "DisplayExercise", new {id=Exercise.ExerciseID})*@
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+
+            }
+        </div>
+    </div>
+
+</main>

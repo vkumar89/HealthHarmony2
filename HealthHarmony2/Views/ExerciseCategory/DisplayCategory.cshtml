@@ -1,0 +1,38 @@
+﻿@model HealthHarmony2.Models.ExerciseCategory
+@{
+    ViewBag.Title = "DisplayCategory";
+}
+
+
+<main>
+    <div class="container">
+        <div class="row">
+            @foreach (var category in Model.Exercises)
+            {
+                if (Model.CategoryID == category.ExerciseCategoryId)
+                {
+                    <div class="col-6" style="padding:50px">
+                        <div class="card">
+                            <a href="http://localhost:60379/Exercise/DisplayExercise/@category.ExerciseID" class="link-dark text-decoration-none ">
+                                <img class="card-img-top" src='/Uploads/@category.ExerciseImage' alt="No Image" width="250" height="250" />
+                                <div class="card-body">
+                                    <h4 class="card-title " style="text-align:center">@Html.DisplayFor(E => category.ExerciseName)</h4>
+                                    <p>@category.ExerciseDescription</p>
+
+                                    <button class="btn btn-outline-success align-content-center card-body" style="width:100%"> View @*@Html.ActionLink("Exercise", "DisplayCategory", new { id = category.ExerciseCategoryId},new {@class= "link-dark text-decoration-none fw-bold" })*@</button>
+
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                }
+
+
+
+
+            }
+        </div>
+    </div>
+
+</main>
