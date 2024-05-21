@@ -61,11 +61,11 @@ namespace HealthHarmony2.Controllers
                 dc.Exercises.Add(exercise);
                 dc.SaveChanges();
 
-                return RedirectToAction("DisplayExercises");
+                return RedirectToAction("AdminExercise");
             }
             catch
             {
-                return RedirectToAction("DisplayExercises");
+                return RedirectToAction("AdminExercise");
             }
         }
         #endregion
@@ -114,13 +114,14 @@ namespace HealthHarmony2.Controllers
                     }
                     file.SaveAs(PhysicalPath + file.FileName);
                     exercise.ExerciseImage = file.FileName;
+                    v.ExerciseImage = exercise.ExerciseImage;
                 }
                 v.ExerciseName = exercise.ExerciseName;
                 v.ExerciseDescription = exercise.ExerciseDescription;
                 v.ExerciseCategory = exercise.ExerciseCategory;
                 v.Categories = exercise.Categories;
                 v.ExerciseBodyPart = exercise.ExerciseBodyPart;
-                v.ExerciseImage = exercise.ExerciseImage;
+                
                 v.ExerciseInstructions = exercise.ExerciseInstructions;
                 dc.Entry(v).State = EntityState.Modified;
 
@@ -161,8 +162,7 @@ namespace HealthHarmony2.Controllers
             }
             catch (Exception a)
             {
-                throw a;
-
+                return RedirectToAction("AdminExercise");
             }
 
         }
