@@ -183,6 +183,10 @@
     <Compile Include="Migrations\202405210819476_HHv14.Designer.cs">
       <DependentUpon>202405210819476_HHv14.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202405220524322_HHv15.cs" />
+    <Compile Include="Migrations\202405220524322_HHv15.Designer.cs">
+      <DependentUpon>202405220524322_HHv15.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\DietPlan.cs" />
     <Compile Include="Models\Exercise.cs" />
@@ -331,6 +335,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202405210819476_HHv14.resx">
       <DependentUpon>202405210819476_HHv14.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202405220524322_HHv15.resx">
+      <DependentUpon>202405220524322_HHv15.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

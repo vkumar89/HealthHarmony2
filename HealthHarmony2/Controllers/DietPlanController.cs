@@ -15,6 +15,7 @@ namespace HealthHarmony2.Controllers
 
         //done
         #region Lists all DietPlan
+        [Authorize]
         public ViewResult DisplayDietPlans()
         {
             return View(dc.DietPlans);
@@ -49,7 +50,17 @@ namespace HealthHarmony2.Controllers
                 }
 
                 dc.DietPlans.Add(DietPlan);
-                dc.SaveChanges();
+                try
+                {
+                    dc.SaveChanges();
+                }
+                catch
+                {
+
+                    ModelState.AddModelError("", "Username and Password is incorrect");
+                    return RedirectToAction("AddDietPlan");
+                }
+                
 
                 return RedirectToAction("AdminDietExercise");
             }
@@ -112,6 +123,7 @@ namespace HealthHarmony2.Controllers
 
         //done
         #region  Shows details of a specific DietPlan
+        [Authorize]
         public ViewResult DisplayDietPlan(int id)
         {
             return View(dc.DietPlans.Find(id));

@@ -12,7 +12,7 @@ namespace HealthHarmony2.Models
         [Required]
         [MaxLength(100)]
         public string DietName { get; set; }
-        [MaxLength(1000, ErrorMessage = "Description is too large")]
+        //[MaxLength(1000, ErrorMessage = "Description is too large")]
         public string DietDescription { get; set; }
 
         public string Calories { get; set; }
