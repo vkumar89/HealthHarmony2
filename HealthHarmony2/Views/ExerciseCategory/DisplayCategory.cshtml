@@ -1,6 +1,7 @@
 ﻿@model HealthHarmony2.Models.ExerciseCategory
 @{
     ViewBag.Title = "DisplayCategory";
+    int? a = 0;
 }
 
 
@@ -11,6 +12,7 @@
             {
                 if (Model.CategoryID == category.ExerciseCategoryId)
                 {
+                    a = category.ExerciseCategoryId;
                     <div class="col-6" style="padding:50px">
                         <div class="card">
                             <a href="http://localhost:60379/Exercise/DisplayExercise/@category.ExerciseID" class="link-dark text-decoration-none ">
@@ -31,6 +33,11 @@
 
 
 
+
+            }
+            @if (Model.CategoryID != a)
+            {
+            <h1 class="bg-warning text-center top-100"> Content Coming Soon !</h1>
             }
         </div>
     </div>

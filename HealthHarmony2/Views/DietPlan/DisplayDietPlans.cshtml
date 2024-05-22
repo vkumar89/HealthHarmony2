@@ -1,6 +1,7 @@
 ﻿@model IEnumerable<HealthHarmony2.Models.DietPlan>
 @{
     ViewBag.Title = "DisplayDietPlans";
+    int a = 0;
 }
 
 
@@ -10,6 +11,7 @@
         <div class="row">
             @foreach (var Diet in Model)
             {
+                a++;
 
                 <div class="col-6" style="padding:50px">
                     <div class="card">
@@ -27,6 +29,12 @@
                 </div>
 
 
+            }
+            @if (a == 0)
+            {
+                
+                    <h1 class="bg-warning text-center top-100"> Content Coming Soon !</h1>
+                
             }
         </div>
     </div>

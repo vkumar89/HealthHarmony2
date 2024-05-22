@@ -9,19 +9,22 @@
 
 @{ 
     int val = 1000;
+    int a = 0;
 } 
 
 
 <div id="carouselExampleInterval" class="carousel slide " data-bs-ride="carousel">
     <div class="carousel-inner" style="width:100%;">
 
-        @foreach (var v in Model)
+        @foreach (var v in Model.AsEnumerable().Reverse())
                 {
             <div class="carousel-item active" data-bs-interval="@val">
                 <a href="http://localhost:60379/ExerciseCategory/DisplayCategory/@v.CategoryID" class="link-dark text-decoration-none ">
-                    <img class="card-img-top" src='/Uploads/@v.CategoryImage' alt="Image Not Found" width="250px" height="300px" /></a>
+                    <img class="card-img-top" src='/Uploads/@v.CategoryImage' alt="Image Not Found" width="250px" height="375px" /></a>
+                
 </div>
             val += 1000;
+            
         }
     </div>
     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
@@ -54,10 +57,10 @@
 <main>
     <div class="container ">
         <div class="row">
-            @foreach (var category in Model)
+            @foreach (var category in Model.AsEnumerable().Reverse())
             {
-
-                <div class="col-6 " style="padding:50px" >
+                a++;
+                <div class="col-6 " style="padding:50px">
                     <div class="card">
                         <a href="http://localhost:60379/ExerciseCategory/DisplayCategory/@category.CategoryID" class="link-dark text-decoration-none ">
                             <img class="card-img-top" src='/Uploads/@category.CategoryImage' alt="No Image" width="250" height="250" />
@@ -71,9 +74,13 @@
                     </div>
                 </div>
             }
+            @if (a == 0)
+            {
+                <h1 class="bg-warning text-center top-100"> Content Coming Soon !</h1>
+            }
         </div>
     </div>
-
+    
 </main>
 
 

@@ -1,13 +1,15 @@
 ﻿@model IEnumerable<HealthHarmony2.Models.Exercise>
 @{
     ViewBag.Title = "DisplayExercises";
+    int a = 0;
 }
 
 <main>
     <div class="container">
         <div class="row">
-            @foreach (var Exercise in Model)
+            @foreach (var Exercise in Model.AsEnumerable().Reverse())
             {
+                a++;
 
                 <div class="col-6" style="padding:50px">
                     <div class="card">
@@ -25,6 +27,10 @@
                 </div>
 
 
+            }
+            @if (a == 0)
+            {
+                <h1 class="bg-warning text-center top-100"> Content Coming Soon !</h1>
             }
         </div>
     </div>
