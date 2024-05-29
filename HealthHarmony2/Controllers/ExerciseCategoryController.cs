@@ -7,7 +7,6 @@ using System.Web.Mvc;
 
 namespace HealthHarmony2.Controllers
 {
-
     public class ExerciseCategoryController : Controller
     {
         #region Connection String
